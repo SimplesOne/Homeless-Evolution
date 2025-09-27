@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://hdq57u2g47dx"]
+
+[ext_resource type="Texture2D" uid="uid://crkj5kehwbqk4" path="res://PNG/City1/Bright/buildings.png" id="1_fv4w7"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="2_2dftf"]
+[ext_resource type="Texture2D" uid="uid://c1uth305gqq0u" path="res://PNG/City1/Bright/road&border.png" id="2_fvag4"]
+[ext_resource type="PackedScene" uid="uid://dm1kj51aepvia" path="res://trigger_zone.tscn" id="3_bcbcq"]
+[ext_resource type="Texture2D" uid="uid://stn5uqu387ju" path="res://PNG/City1/Bright/Sky.png" id="3_kva58"]
+[ext_resource type="Texture2D" uid="uid://djhogbq2s5dhx" path="res://PNG/City1/Bright/wall1.png" id="4_f5c0m"]
+[ext_resource type="Texture2D" uid="uid://bropd1uy6klt3" path="res://PNG/City1/Bright/wall2.png" id="5_b2ar6"]
+[ext_resource type="Texture2D" uid="uid://bi5d6ltwtjdl2" path="res://PNG/City1/Bright/boxes&container.png" id="6_ee7l0"]
+[ext_resource type="Texture2D" uid="uid://qxbgxyymtei2" path="res://PNG/City1/Bright/wheels&hydrant.png" id="7_gn8l5"]
+
+[node name="World" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="Buildings" type="Sprite2D" parent="Parallax2D"]
+z_index = 2
+position = Vector2(960, 540)
+texture = ExtResource("1_fv4w7")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+
+[node name="Road" type="Sprite2D" parent="Parallax2D2"]
+z_index = 7
+position = Vector2(960, 540)
+texture = ExtResource("2_fvag4")
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 1)
+
+[node name="Sky" type="Sprite2D" parent="Parallax2D3"]
+z_index = 1
+position = Vector2(960, 540)
+texture = ExtResource("3_kva58")
+
+[node name="Parallax2D4" type="Parallax2D" parent="."]
+
+[node name="Wall1" type="Sprite2D" parent="Parallax2D4"]
+z_index = 4
+position = Vector2(960, 540)
+texture = ExtResource("4_f5c0m")
+
+[node name="Parallax2D5" type="Parallax2D" parent="."]
+
+[node name="Wall2" type="Sprite2D" parent="Parallax2D5"]
+z_index = 3
+position = Vector2(960, 540)
+texture = ExtResource("5_b2ar6")
+
+[node name="Parallax2D6" type="Parallax2D" parent="."]
+
+[node name="Boxes" type="Sprite2D" parent="Parallax2D6"]
+z_index = 5
+position = Vector2(960, 540)
+texture = ExtResource("6_ee7l0")
+
+[node name="Parallax2D7" type="Parallax2D" parent="."]
+
+[node name="Wheels" type="Sprite2D" parent="Parallax2D7"]
+z_index = 6
+position = Vector2(960, 540)
+texture = ExtResource("7_gn8l5")
+
+[node name="Player" parent="." instance=ExtResource("2_2dftf")]
+z_index = 10
+position = Vector2(125.99994, 733.99994)
+scale = Vector2(5, 5)
+speed = 200
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+zoom = Vector2(0.6, 0.6)
+
+[node name="TriggerZone" parent="." instance=ExtResource("3_bcbcq")]
+position = Vector2(766, 701)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_font_sizes/normal_font_size = 90
+text = "
+Preeee eeh eeh"
+horizontal_alignment = 1
