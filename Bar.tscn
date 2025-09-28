@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://slbciu0qltds"]
+
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="1_of7b7"]
+[ext_resource type="PackedScene" uid="uid://bck3fmuh70vt4" path="res://Triggers/GangsterExit/trigger_zone.tscn" id="3_caxjv"]
+[ext_resource type="Texture2D" uid="uid://b4j75vk4qb2bq" path="res://PNG/City2/Bright/City2.png" id="3_of7b7"]
+[ext_resource type="PackedScene" uid="uid://ducx2gqcq54dt" path="res://Enemy/Gangster/Gangster.tscn" id="4_caxjv"]
+[ext_resource type="PackedScene" uid="uid://cifoib1ki5hd0" path="res://Triggers/BarExit/trigger_zone.tscn" id="5_a4g1m"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_of7b7")]
+z_index = 10
+position = Vector2(125.99994, 733.99994)
+scale = Vector2(5, 5)
+speed = 500
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+zoom = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_of7b7")
+
+[node name="TriggerZone" parent="." instance=ExtResource("3_caxjv")]
+position = Vector2(552, 645)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/normal_font_size = 90
+text = "
+Bogos binted"
+horizontal_alignment = 1
+
+[node name="Gangster" parent="." instance=ExtResource("4_caxjv")]
+visible = false
+texture_filter = 1
+position = Vector2(748.00006, 664)
+scale = Vector2(5, 5)
+
+[node name="TriggerZone2" parent="." instance=ExtResource("5_a4g1m")]
+position = Vector2(1611, 647)
