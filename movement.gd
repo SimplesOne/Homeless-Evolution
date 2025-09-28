@@ -1,6 +1,9 @@
 extends Area2D
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
+@export var attack_damage := 25
+@export var attack_radius := 50
+
 var screen_size # Size of the game window.
 
 func _ready():
@@ -9,9 +12,9 @@ func _ready():
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("move_right"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_left"):
 		velocity.x += 1
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= 1
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -23,7 +26,17 @@ func _process(delta):
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "Run"
 		$AnimatedSprite2D.flip_v = false
-		# See the note below about the following boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-	if velocity.x == 0:
+	else:
 		$AnimatedSprite2D.animation = "Idle"
+
+func _input(event):
+	if event.is_action_pressed("attack"):  # Make sure "attack" is defined in Input Map
+		perform_attack()
+
+func perform_attack():
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		if global_position.distance_to(enemy.global_position) <= attack_radius:
+			if enemy.has_method("take_damage"):
+				enemy.take_damage(attack_damage)
