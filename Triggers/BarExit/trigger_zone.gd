@@ -21,15 +21,7 @@ func _on_area_entered(body):
 
 func _process(delta):
 	if player_inside and Input.is_action_just_pressed("interact"):
-		ui_label2.visible = false
-		player_ref.position = Vector2(126, 734)
-		Gangster_sprite.flip_h = true
-		Gangster.visible = true
-		ui_label.text = "Boss: Pleaca de aici boschetare si intoarce-te mai tarziu"
-		await wait(3)
-		ui_label.text = "Eu: Inregula, prietene"
-		
-		monitoring = false
+		get_tree().change_scene_to_file("res://Cafe.tscn")
 
 func wait(duration):  
 	await get_tree().create_timer(duration, false, false, true).timeout
