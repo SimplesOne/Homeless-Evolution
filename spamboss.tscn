@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqtlt21xiwdhy"]
+
+[ext_resource type="Script" uid="uid://bidfhelicvt6c" path="res://spamboss.gd" id="1_ygeph"]
+[ext_resource type="PackedScene" uid="uid://bck3fmuh70vt4" path="res://Triggers/GangsterExit/trigger_zone.tscn" id="2_rw6cy"]
+
+[node name="BossBar" type="CanvasLayer"]
+script = ExtResource("1_ygeph")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 46.0
+offset_top = 19.0
+offset_right = 944.0
+offset_bottom = 126.0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 60
+text = "fight"
+
+[node name="TriggerZone" parent="." instance=ExtResource("2_rw6cy")]
+position = Vector2(552, 645)

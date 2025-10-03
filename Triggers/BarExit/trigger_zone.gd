@@ -2,7 +2,6 @@ extends Area2D
 
 @export var message: String = "Press E"
 @onready var ui_label = $"../../CanvasLayer/RichTextLabel"
-@onready var ui_label2 = $"../../CanvasLayer/RichTextLabel2"
 @onready var Gangster = $"../../Gangster"
 @onready var Gangster_sprite = Gangster.get_node("AnimatedSprite2D")
 

@@ -20,10 +20,12 @@ func _on_area_entered(body):
 
 func _process(delta):
 	if player_inside and Input.is_action_just_pressed("interact"):
+		Shaman_sprite.animation = "Open"
 		ui_label.text = "Shaman: Salut calatorule, am o cafea pregatita pentru tine"
 		await wait(3)
-		ui_label.text = "Pare dubios dar mi-ar prinde bine"
+		ui_label.text = "Eu: Pare dubios dar mi-ar prinde bine"
 		await wait(3)
+		Shaman_sprite.animation = "Idle"
 		_trigger_ui_animation()
 		wait(0.3)
 		get_tree().change_scene_to_file("res://Mystical.tscn")

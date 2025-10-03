@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://kmyuj6iw71bm"]
+
+[ext_resource type="Texture2D" uid="uid://gollfmjxd277" path="res://PNG/Battleground1/Bright/Battleground1.png" id="1_lm0ep"]
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+zoom = Vector2(0.6, 0.6)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/normal_font_size = 75
+text = "Esti multumit de alegerea ta?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_lm0ep")
